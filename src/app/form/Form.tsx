@@ -6,17 +6,14 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { getSession } from "next-auth/react";
 import { jwtDecode } from "jwt-decode";
-import {
-  calculateTDEE,
-  calculateBMR,
-  calculateMacros,
-} from "../../../lib/Algos";
+import { calculateTDEE, calculateBMR } from "../../../lib/Algos";
 interface DecodedToken {
   userId: string; // Spécifie que ton token a un champ userId
   // Ajoute d'autres champs si nécessaire
 }
 const Form = () => {
   const router = useRouter();
+  const [token, setToken] = useState<string | null>(null);
   const [age, setAge] = useState<number>();
   const [weight, setWeight] = useState<number>();
   const [height, setHeight] = useState<number>();
@@ -58,8 +55,17 @@ const Form = () => {
   ) => {
     setCaloriesDeficit(parseFloat(event.target.value));
   };
-  const token = localStorage.getItem("token");
-  console.log("token", token);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Vérifie que le code est exécuté côté client
+      const storedToken = localStorage.getItem("token");
+      if (storedToken) {
+        setToken(storedToken);
+        console.log("Token from localStorage:", storedToken);
+      }
+    }
+  }, []); // Le hook se déclenche une fois après le premier rendu
+
   const handleSubmit = async () => {
     if (
       weight !== null &&
@@ -87,7 +93,7 @@ const Form = () => {
         setErrors("");
       } else {
         const session = await getSession();
-        const token = localStorage.getItem("token");
+
         console.log(token);
 
         const BMR = calculateBMR(weight, height, age, gender);
@@ -139,10 +145,9 @@ const Form = () => {
   return (
     <div className="flex flex-col mt-10 lg:mt-0    z-50 relative 2xl:scale-100 xl:scale-90 lg:scale-75 items-center lg:space-y-12 space-y-8 pb-10 lg:pb-0 ">
       <h2 className=" lg:text-sky-900 text-white  bg-opacity-50  py-2 px-5 rounded-full lg:text-2xl text-lg font-bold w-fit">
-        Formulaire d'inscription
+        Formulaire d&apos;inscription
       </h2>
       <div className="flex lg:space-x-20 lg:flex-row flex-col lg:space-y-0 space-y-8 ">
-        {" "}
         <div className=" lg:w-fit h-auto flex flex-col  justify-center  items-center   ">
           <div className="lg:w-56 w-full flex flex-col space-y-5 lg:space-y-8 ">
             <div className=" flex flex-row justify-between items-center   ">
@@ -213,7 +218,7 @@ const Form = () => {
             {" "}
             <div className="flex items-center space-x-10 w-full justify-between   ">
               <span className="lg:text-xl text-md text-white lg:text-sky-900">
-                Niveau d'activité{" "}
+                Niveau d&apos;activité{" "}
               </span>
               <select
                 className="form-select  rounded-xl py-2 px-4 lg:w-36 w-32"

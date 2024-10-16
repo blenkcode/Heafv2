@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import Hero from "./Components/Hero";
 import Circle from "./Components/Circle";
 import Circle2 from "./Components/Circle2";

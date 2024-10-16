@@ -2,8 +2,9 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { connectToDatabase } from "../../../../../lib/mongodb";
 import UserModel from "../../../../../models/user";
-import { CredentialsProvider } from "next-auth/providers/credentials";
-export const authOptions: NextAuthOptions = {
+
+// Définition des options d'authentification
+const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -11,7 +12,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile }) {
+    async signIn({ user, profile }) {
       await connectToDatabase();
 
       // Chercher l'utilisateur dans la base de données
@@ -54,20 +55,18 @@ export const authOptions: NextAuthOptions = {
         token.age = user.age;
         token.height = user.height;
         token.gender = user.gender;
-        // Assigner l'ID de l'utilisateur (string) au token JWT
       }
       return token;
     },
 
     // Inclure l'ID utilisateur dans la session
     async session({ session, token }) {
-      // Vérifier que session.user existe avant d'ajouter l'ID
       if (session?.user) {
         session.user.image = token.picture;
         session.user.id = token.id as string;
         session.user.age = token.age as number;
         session.user.height = token.height as number;
-        session.user.gender = token.gender as string; // Ajout de l'ID utilisateur
+        session.user.gender = token.gender as string;
       }
       return session;
     },
@@ -76,6 +75,7 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 };
 
+// Exporter les méthodes GET et POST comme routes
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

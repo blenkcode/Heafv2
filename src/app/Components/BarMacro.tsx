@@ -48,7 +48,7 @@ export const BarChartOnValueChangeExample: React.FC<
   BarChartOnValueChangeExampleProps
 > = ({ chartdata }) => {
   const [value, setValue] = React.useState<BarChartEventProps>(null);
-
+  console.log(value);
   return (
     <>
       <BarChart

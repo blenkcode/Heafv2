@@ -7,9 +7,8 @@ import {
   faTableColumns,
   faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSession } from "next-auth/react";
+
 const Header = () => {
-  const { status, data: session } = useSession();
   return (
     <div className="w-fit px-10 text-white text-base font-Satoshi rounded-bl-full  rounded-br-full fixed z-50 top-0 left-1/2 -translate-x-1/2 h-12 bg-sky-900 flex items-center justify-center  lg:visible invisible  border-sky-900  overflow-hidden">
       <div className="flex space-x-20 h-full items-center ">

@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBullseye, faDna } from "@fortawesome/free-solid-svg-icons";
-import Anim2 from "./Anim2";
+import { faDna } from "@fortawesome/free-solid-svg-icons";
+
 import { useState, useEffect } from "react";
 import { calculateMacros } from "../../../lib/Algos";
-import Dots from "../Components/Dots";
+
 import { BarChartOnValueChangeExample } from "../Components/BarMacro";
 interface ProfileMainProps {
   profileData: {
@@ -23,10 +23,6 @@ interface WeightEntry {
   date: string; // Utilisation du format ISO pour la date
 }
 const Profilemacros: React.FC<ProfileMainProps> = ({ profileData }) => {
-  const [prot, setProt] = useState(false);
-  const [glu, setGlu] = useState(false);
-  const [lip, setLip] = useState(false);
-  const [overlay, setOverlay] = useState(true);
   const [macros, setMacros] = useState({
     proteine: 0,
     lipide: 0,
@@ -61,24 +57,7 @@ const Profilemacros: React.FC<ProfileMainProps> = ({ profileData }) => {
 
     fetchMacros();
   }, [profileData.weights.length]);
-  const handleProt = () => {
-    setLip(false);
-    setGlu(false);
-    setProt(true);
-    setOverlay(false);
-  };
-  const handleGlu = () => {
-    setLip(false);
-    setProt(false);
-    setGlu(true);
-    setOverlay(false);
-  };
-  const handleLip = () => {
-    setGlu(false);
-    setProt(false);
-    setLip(true);
-    setOverlay(false);
-  };
+
   return (
     <div className="text-slate-200 min-w-full w-full h-  bg-sky-900 relative  px-5 rounded-xl py-5 h-full">
       <div className="flex-col flex ">
@@ -89,10 +68,7 @@ const Profilemacros: React.FC<ProfileMainProps> = ({ profileData }) => {
               Macro-Nutriments
             </div>
             <div className="flex flex-col justify-between space-y-3">
-              <span
-                onClick={handleProt}
-                className="border-slate-300 border-2 border-opacity-80 rounded-xl flex justify-center  bg-zinc-200 text-black w-full  transition-colors  flex-col items-start py-2 pl-4  cursor-pointer overflow-hidden relative"
-              >
+              <span className="border-slate-300 border-2 border-opacity-80 rounded-xl flex justify-center  bg-zinc-200 text-black w-full  transition-colors  flex-col items-start py-2 pl-4  cursor-pointer overflow-hidden relative">
                 {" "}
                 <div className="w-44 h-44 shadow-2xl bg-blue-300 rounded-full absolute 2xl:-left-10 lg:-left-16 border-2 border-solid border-black border-opacity-20 -left-10 z-10"></div>
                 <div className="flex justify-between w-full pr-2 z-20">
@@ -103,10 +79,7 @@ const Profilemacros: React.FC<ProfileMainProps> = ({ profileData }) => {
                   {macros.proteine} <span className="text-2xl">g</span>{" "}
                 </span>
               </span>
-              <span
-                onClick={handleGlu}
-                className="border-slate-300 border-2 border-opacity-80 rounded-xl flex justify-center  w-full  flex-col  bg-zinc-200 text-black transition-colors  items-start py-2 pl-4  cursor-pointer relative overflow-hidden"
-              >
+              <span className="border-slate-300 border-2 border-opacity-80 rounded-xl flex justify-center  w-full  flex-col  bg-zinc-200 text-black transition-colors  items-start py-2 pl-4  cursor-pointer relative overflow-hidden">
                 {" "}
                 <div className="w-44 h-44 shadow-2xl bg-emerald-300 rounded-full absolute 2xl:-left-10 -left-10 lg:-left-16 border-2 border-solid border-black border-opacity-20 z-10"></div>
                 <div className="flex justify-between w-full pr-2 z-20">
@@ -117,10 +90,7 @@ const Profilemacros: React.FC<ProfileMainProps> = ({ profileData }) => {
                   {macros.glucide} <span className="text-2xl">g</span>{" "}
                 </span>
               </span>
-              <span
-                onClick={handleLip}
-                className="border-slate-300 border-2 border-opacity-80 rounded-xl flex justify-center w-full   flex-col  bg-zinc-200 text-black relative overflow-hidden transition-colors  items-start py-2 pl-4  cursor-pointer"
-              >
+              <span className="border-slate-300 border-2 border-opacity-80 rounded-xl flex justify-center w-full   flex-col  bg-zinc-200 text-black relative overflow-hidden transition-colors  items-start py-2 pl-4  cursor-pointer">
                 {" "}
                 <div className="w-44 h-44 shadow-2xl border-2 border-solid border-black border-opacity-20 bg-amber-200 rounded-full absolute 2xl:-left-10 lg:-left-16 -left-10 z-10"></div>
                 <div className="flex justify-between w-full pr-2 z-20">

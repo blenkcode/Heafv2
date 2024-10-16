@@ -3,11 +3,7 @@ import { useState } from "react";
 import { LineChart } from "../Components/Charts";
 import { getSession } from "next-auth/react";
 import { jwtDecode } from "jwt-decode";
-import {
-  calculateTDEE,
-  calculateBMR,
-  calculateMacros,
-} from "../../../lib/Algos";
+import { calculateTDEE, calculateBMR } from "../../../lib/Algos";
 interface ProfileMainProps {
   profileData: {
     name: string;

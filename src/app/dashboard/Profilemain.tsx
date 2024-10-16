@@ -9,8 +9,7 @@ import {
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import { object } from "zod";
-import { ProgressCircle } from "../Components/Progress";
+
 interface ProfileMainProps {
   profileData: {
     name: string;

@@ -1,12 +1,6 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBullseye,
-  faWeightScale,
-  faFire,
-  faArrowDown,
-  faArrowUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBullseye } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { ProgressCircle } from "../Components/Progress";
 interface ProfileMainProps {
