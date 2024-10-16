@@ -8,7 +8,7 @@ import Auth from "./Components/Auth";
 
 export default function Home() {
   return (
-    <main className="h-screen w-full font-Satoshi text-base flex lg:flex-row flex-col items-center justify-center lg:bg-zinc-100 bg-sky-900 text-sky-800 overflow-hidden overflow-y-scroll ">
+    <main className="lg:h-lvh  h-screen w-full font-Satoshi text-base flex lg:flex-row flex-col items-center justify-center lg:bg-zinc-200 bg-sky-900 text-sky-800 overflow-hidden lg:overflow-y-hidden overflow-y-scroll ">
       <div className="  w-full lg:w-2/3  lg:bg-transparent bg-opacity-50 flex flex-col lg:items-end items-center xl:pr-44 2xl:pr-80 lg:pr-32 lg:justify-start justify-center lg:pt-48 relative lg:h-full h-auto py-20 lg:py-0 ">
         <Hero />
         <Circle />

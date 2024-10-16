@@ -6,7 +6,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 
 const Auth = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   const handleChange = () => {
     setIsLogin(!isLogin);

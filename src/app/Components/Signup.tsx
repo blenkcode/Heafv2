@@ -83,7 +83,7 @@ const Signup = ({ handleChange }: { handleChange: () => void }) => {
           <input
             type="text"
             placeholder="Votre nom"
-            className="w-full 2xl:h-12 lg:h-10 h-10  rounded-xl flex items-center px-3 border-2 bg-transparent border-solid  lg:placeholder-black placeholder-zinc-400  placeholder-opacity-45 lg:border-sky-900 border-white "
+            className="w-full 2xl:h-12 lg:h-10 h-10  rounded-xl flex items-center px-3 border-2 bg-transparent border-solid  lg:placeholder-black placeholder-zinc-400  lg:placeholder-opacity-45 placeholder-opacity-45 lg:border-sky-900 border-white "
             onChange={(e) => setUsername(e.target.value)}
           ></input>
           {errors.username && (
@@ -97,7 +97,7 @@ const Signup = ({ handleChange }: { handleChange: () => void }) => {
           <input
             type="text"
             placeholder="youremail@gmail.com"
-            className="w-full 2xl:h-12 lg:h-10 h-10  rounded-xl flex items-center px-3 border-2 bg-transparent border-solid  lg:placeholder-black placeholder-zinc-400 placeholder-opacity-45 lg:border-sky-900 border-white  "
+            className="w-full 2xl:h-12 lg:h-10 h-10  rounded-xl flex items-center px-3 border-2 bg-transparent border-solid  lg:placeholder-black placeholder-zinc-400  lg:placeholder-opacity-45 placeholder-opacity-45 lg:border-sky-900 border-white "
             onChange={(e) => setEmail(e.target.value)}
           ></input>
           {errors.email && (
@@ -111,7 +111,7 @@ const Signup = ({ handleChange }: { handleChange: () => void }) => {
           <input
             type="text"
             placeholder="Password"
-            className="w-full 2xl:h-12 lg:h-10 h-10  rounded-xl flex items-center px-3 border-2 bg-transparent border-solid  lg:placeholder-black placeholder-zinc-400  placeholder-opacity-45 lg:border-sky-900 border-white  "
+            className="w-full 2xl:h-12 lg:h-10 h-10  rounded-xl flex items-center px-3 border-2 bg-transparent border-solid  lg:placeholder-black placeholder-zinc-400  lg:placeholder-opacity-45 placeholder-opacity-45 lg:border-sky-900 border-white "
             onChange={(e) => setPassword(e.target.value)}
           ></input>
           {errors.password && (
@@ -131,7 +131,7 @@ const Signup = ({ handleChange }: { handleChange: () => void }) => {
           <div className="z-30  transition-all duration-500  ease-in-out  group-hover:scale-125 lg:text-white text-sky-900 group-hover:translate-x-56">
             Inscription
           </div>
-          <div className="z-30 absolute -translate-x-56 group-hover:translate-x-0 ease-in-out  lg:text-white text-sky-900 transition-all duration-500 font-extrabold ">
+          <div className="z-30 absolute -translate-x-56 group-hover:translate-x-0 ease-in-out   text-sky-900 transition-all duration-500 font-extrabold ">
             Inscription
           </div>
         </div>
