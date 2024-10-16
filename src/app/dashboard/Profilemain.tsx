@@ -142,7 +142,7 @@ const Profilemain: React.FC<ProfileMainProps> = ({ profileData }) => {
               <span className="2xl:text-3xl text-2xl mt-2 text-sky-900 z-20">
                 {" "}
                 {profileData.TDEE}
-                <span className="2xl:text-2xl lg:text-xl">Kcal</span>{" "}
+                <span className="2xl:text-2xl lg:text-xl"> Kcal</span>{" "}
               </span>
             </div>
           </span>

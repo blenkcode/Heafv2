@@ -40,7 +40,7 @@ const ProfileProgress: React.FC<ProfileMainProps> = ({ profileData }) => {
     }
   }, [profileData.weights.length]);
   return (
-    <div className="text-slate-200 min-w-full flex  flex-col justify-between  items-center w-full shadow-xl bg-sky-900  px-5 rounded-xl py-5  h-full lg:bg-opacity-90 mt-5 lg:mt-0  ">
+    <div className="text-slate-200 min-w-full flex  flex-col justify-between  items-center w-full shadow-xl bg-sky-900  px-5 rounded-xl py-5  h-full mt-5 lg:mt-0  ">
       {" "}
       <div className="h-full w-full items-center justify-center flex">
         {" "}
