@@ -8,7 +8,7 @@ import ProfileProgress from "./ProfileProgress";
 import Link from "next/link";
 import Circle from "../Components/Circle";
 import Circle2 from "../Components/Circle2";
-import Circle3 from "../Components/Circle3";
+
 import ProfilePicture from "../Components/ProfilePicture";
 import Skeleton from "../Components/Skeleton";
 import { jwtDecode } from "jwt-decode";
