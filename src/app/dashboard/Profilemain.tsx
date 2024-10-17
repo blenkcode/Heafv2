@@ -60,7 +60,7 @@ const Profilemain: React.FC<ProfileMainProps> = ({ profileData }) => {
     }
   }, [profileData.weights.length]);
   return (
-    <div className="bg-sky-900 shadow-xl mt-5 lg:mt-0 flex items-center w-full text-slate-200 px-5 h-full relative rounded-xl">
+    <div className="bg-sky-900 shadow-xl mt-5 lg:mt-0 flex items-center w-full lg:border-1 border-zinc-200 text-slate-200 border-opacity-50 px-5 h-full relative rounded-xl">
       <div className="w-full flex items-center justify-center">
         <div className=" flex w-full lg:flex-row flex-col items-center justify-center py-10 lg:py-0">
           <span className="border-slate-300  border-2 border-opacity-80 rounded-xl flex justify-center  hover:bg-customBlue2 transition-colors  w-full lg:h-full h-24  lg:mr-8 flex-col items-start py-2 pl-4 lg:mb-0 mb-5 overflow-hidden relative">

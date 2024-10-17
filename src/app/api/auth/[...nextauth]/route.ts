@@ -23,7 +23,7 @@ const authOptions: NextAuthOptions = {
         const newUser = new UserModel({
           name: profile?.name,
           email: user.email,
-          firstCo: new Date(),
+          firstCo: new Date(), // On définit la première connexion
           password: "not defined", // Placeholder password
           image: profile?.image,
           age: null,
@@ -37,38 +37,45 @@ const authOptions: NextAuthOptions = {
           caloriesDeficit: null,
         });
         existingUser = await newUser.save();
+
+        // Retourner que l'utilisateur est nouveau
+        user.isFirstLogin = true;
+      } else {
+        // Si l'utilisateur est trouvé, indiquer que ce n'est pas une première connexion
+        user.isFirstLogin = false;
       }
 
-      // Vérifier que existingUser n'est pas null et que l'_id est bien défini
+      // Convertir l'ObjectId en string
       if (existingUser && existingUser._id) {
-        // Convertir l'ObjectId en string
         user.id = existingUser._id.toString();
       }
 
       return true;
     },
 
-    // Ajouter l'ID utilisateur (string) au JWT
     async jwt({ token, user }) {
+      // Si un nouvel utilisateur a été créé lors de la connexion
       if (user) {
         token.id = user.id;
-        token.age = user.age;
-        token.height = user.height;
-        token.gender = user.gender;
+        // Assigner isFirstLogin en fonction de la création de l'utilisateur
+        token.isFirstLogin = user.isFirstLogin;
       }
       return token;
     },
 
-    // Inclure l'ID utilisateur dans la session
     async session({ session, token }) {
       if (session?.user) {
-        session.user.image = token.picture;
         session.user.id = token.id as string;
-        session.user.age = token.age as number;
-        session.user.height = token.height as number;
-        session.user.gender = token.gender as string;
+
+        // Assurer que isFirstLogin est bien transmis à la session
+        session.user.isFirstLogin = token.isFirstLogin as boolean;
       }
       return session;
+    },
+
+    async redirect({ baseUrl }) {
+      // Rediriger par défaut vers /dashboard
+      return `${baseUrl}/`;
     },
   },
 

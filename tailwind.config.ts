@@ -14,6 +14,11 @@ const config: Config = {
         circle1: "200rem",
         macros: "660px",
         circle2: "200rem",
+        macro: "600px",
+        header: "580px",
+      },
+      borderWidth: {
+        1: "0.5px",
       },
       height: {
         circle1: "200rem",

@@ -54,7 +54,9 @@ const Signup = ({ handleChange }: { handleChange: () => void }) => {
             }),
           }
         );
-
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
 
         if (data.result) {

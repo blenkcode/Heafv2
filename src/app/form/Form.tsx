@@ -11,6 +11,7 @@ interface DecodedToken {
   userId: string; // Spécifie que ton token a un champ userId
   // Ajoute d'autres champs si nécessaire
 }
+
 const Form = () => {
   const router = useRouter();
   const [token, setToken] = useState<string | null>(null);
@@ -24,6 +25,7 @@ const Form = () => {
   const [errorDeficit, setErrorDeficit] = useState<string>("");
   const [errorPDM, setErrorPDM] = useState<string>("");
   const [errors, setErrors] = useState<string>("");
+
   const handleAgeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAge(event.target.valueAsNumber);
   };

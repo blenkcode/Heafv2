@@ -9,7 +9,7 @@ const ProfilePicture = () => {
   if (status === "authenticated") {
     return (
       <div>
-        <div className="w-2 h-2 bg-sky-900 rounded-full ml-2"></div>
+        <div className="w-2 h-2 bg-zinc-100 rounded-full ml-2"></div>
         {/* <img
           src={session?.user?.image || "/default-profile.png"}
           alt="Profile Picture"

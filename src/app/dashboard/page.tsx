@@ -10,7 +10,7 @@ import Circle from "../Components/Circle";
 import Circle2 from "../Components/Circle2";
 import Circle3 from "../Components/Circle3";
 import ProfilePicture from "../Components/ProfilePicture";
-
+import Skeleton from "../Components/Skeleton";
 import { jwtDecode } from "jwt-decode";
 interface profileData {
   name: string;
@@ -67,8 +67,32 @@ export default function Page() {
 
   if (!profileData) {
     return (
-      <main>
-        <p>Chargement des données...</p>
+      <main className="lg:h-lvh w-full font-Satoshi text-base flex items-center justify-center bg-zinc-100 text-sky-800 lg:overflow-hidden overflow-x-hidden relative px-2 lg:px-0 py-5 lg:py-0">
+        <div className="absolute top-1/2 lg:visible invisible">
+          <div className="relative">
+            <Circle />
+            <Circle2 />
+            <Circle3 />
+          </div>
+        </div>
+
+        <div className="flex flex-col w-full xl:px-20 h-full items-start justify-center space-y-5 z-20 2xl:scale-100 xl:scale-90 lg:scale-75">
+          <div className="flex w-full items-center text-2xl justify-between">
+            <div className="flex space-x-5 items-center">
+              <Skeleton width="10px" height="10px" />{" "}
+              {/* Profile picture skeleton */}
+              <Skeleton width="150px" height="24px" /> {/* Name skeleton */}
+            </div>
+            <Skeleton width="120px" height="40px" /> {/* Button skeleton */}
+          </div>
+          <Skeleton width="100%" height="150px" />{" "}
+          {/* Main profile section skeleton */}
+          <div className="flex items-center justify-center lg:flex-row flex-col w-full lg:space-x-5 space-y-5 lg:space-y-0">
+            <Skeleton width="100%" height="400px" /> {/* Macros skeleton */}
+            <Skeleton width="100%" height="400px" /> {/* Progress skeleton */}
+            <Skeleton width="100%" height="400px" /> {/* Chart skeleton */}
+          </div>
+        </div>
       </main>
     );
   }
@@ -109,18 +133,18 @@ export default function Page() {
           <Profilemain profileData={profileData} />
         </div>
         <div className="flex items-center justify-center lg:flex-row flex-col w-full lg:space-x-5  ">
-          <div className="lg:w-5/12 w-full shadow-2xl rounded-xl">
-            <Profilemacros profileData={profileData} />
-          </div>
-          <div className="lg:w-2/12 w-full shadow-2xl rounded-xl flex items-center h-full justify-center ">
-            <ProfileProgress profileData={profileData} />
-          </div>
           <div className="lg:w-2/5 w-full flex items-center h-full justify-center  shadow-2xl rounded-xl">
             {/* Passez fetchProfileData à ProfileChart pour rafraîchir après la mise à jour */}
             <ProfileChart
               profileData={profileData}
               onWeightUpdate={fetchProfileData}
             />
+          </div>
+          <div className="lg:w-2/12 w-full shadow-2xl rounded-xl flex items-center h-full justify-center ">
+            <ProfileProgress profileData={profileData} />
+          </div>
+          <div className="lg:w-5/12 w-full shadow-2xl rounded-xl">
+            <Profilemacros profileData={profileData} />
           </div>
         </div>
       </div>
