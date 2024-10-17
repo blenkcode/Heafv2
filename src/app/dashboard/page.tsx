@@ -70,9 +70,7 @@ export default function Page() {
       <main className="lg:h-lvh w-full font-Satoshi text-base flex items-center justify-center bg-zinc-100 text-sky-800 lg:overflow-hidden overflow-x-hidden relative px-2 lg:px-0 py-5 lg:py-0">
         <div className="absolute top-1/2 lg:visible invisible">
           <div className="relative">
-            <Circle />
             <Circle2 />
-            <Circle3 />
           </div>
         </div>
 
@@ -106,7 +104,6 @@ export default function Page() {
           {" "}
           <Circle />
           <Circle2></Circle2>
-          <Circle3></Circle3>
         </div>
       </div>
 
