@@ -27,7 +27,7 @@ const Hero = () => {
   }, [status, session, router]);
 
   return (
-    <div className="lg:space-y-8 flex flex-col z-40 relative items-center  ">
+    <div className="lg:space-y-8 flex flex-col z-40 relative items-center mb-20 lg:mb-0 ">
       <DotsMain></DotsMain>
       <div className="lg:w-96 lg:h-96 w-56 h-56  bg-gradient-to-br from-sky-700 to-transparent rounded-full absolute -top-24 -left-24 z-10"></div>
       <div className="lg:space-y-7 space-y-7 flex flex-col  items-center z-30  ">

@@ -70,10 +70,10 @@ export default function Home() {
     } else {
       gsap.fromTo(
         progRef.current,
-        { opacity: 0, y: -500, visibility: "hidden" },
+        { opacity: 0, y: 500, visibility: "hidden" },
         {
           opacity: 1,
-          y: -120,
+          y: 270,
           duration: 2,
           delay: 0,
           ease: "power3.out",
@@ -94,10 +94,10 @@ export default function Home() {
       );
       gsap.fromTo(
         mainRef.current,
-        { opacity: 0, y: 600, visibility: "hidden" },
+        { opacity: 0, y: -500, visibility: "hidden" },
         {
           opacity: 1,
-          y: 350,
+          y: -150,
           duration: 2,
           delay: 0,
           ease: "power3.out",
@@ -106,10 +106,10 @@ export default function Home() {
       );
       gsap.fromTo(
         chartRef.current,
-        { opacity: 0, x: -500, visibility: "hidden" },
+        { opacity: 0, x: -300, visibility: "hidden" },
         {
           opacity: 1,
-          x: -200,
+          x: -150,
           duration: 2,
           delay: 0,
           ease: "power3.out",
@@ -129,7 +129,7 @@ export default function Home() {
       <div className="lg:w-1/2 h-full w-full pb-20   flex flex-col items-center justify-center relative lg:scale-75 scale-50 mt-20 lg:mt-0">
         <div
           ref={progRef}
-          className="absolute invisible lg:-translate-x-32 -translate-x-44 z-20"
+          className="absolute invisible lg:-translate-x-32 translate-x-36 z-20"
         >
           {" "}
           <ProgressHero></ProgressHero>
@@ -145,7 +145,7 @@ export default function Home() {
         </div>
         <div
           ref={mainRef}
-          className="absolute  lg:translate-x-64 translate-x-28 z-20 invisible"
+          className="absolute  lg:translate-x-64 -translate-x-40 z-20 invisible"
         >
           {" "}
           <MainHero></MainHero>
