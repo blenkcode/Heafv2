@@ -94,7 +94,7 @@ const ProfileChart: React.FC<ProfileMainProps> = ({
   };
 
   return (
-    <div className="h-96 mt-5 lg:mt-0 bg-gray-300 border-2   border-gray-500 w-full flex flex-col justify-between rounded-xl pl-2 pr-5 pt-3">
+    <div className="h-96 lg:mt-0 bg-gray-300 border-2   border-gray-500 w-full flex flex-col justify-between rounded-xl pl-2 pr-5 pt-3">
       <LineChart
         className="h-3/4"
         data={updatedData}

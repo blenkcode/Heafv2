@@ -59,7 +59,7 @@ const Profilemacros: React.FC<ProfileMainProps> = ({ profileData }) => {
   }, [profileData.weights.length]);
 
   return (
-    <div className="text-slate-200 min-w-full w-full h-  bg-sky-900 relative  px-5 rounded-xl py-5 h-full">
+    <div className="text-slate-200 min-w-full w-full h-  bg-sky-900 relative  px-5 rounded-xl py-5 h-full mt-5  lg:mt-0">
       <div className="flex-col flex ">
         <div className="flex lg:flex-row flex-col  justify-evenly">
           <div className="lg:w-1/3 w-full   h-full ">
